@@ -14,9 +14,9 @@ credentials = [
 
 @pytest.fixture
 def browser():
-    b = webdriver.Chrome()
-    yield b
-    b.quit()
+    chrome_br = webdriver.Chrome()
+    yield chrome_br
+    chrome_br.quit()
 
 
 def test_valid_input(browser):
