@@ -11,10 +11,15 @@ credentials = [
     ['', '']
 ]
 
-browser = webdriver.Chrome()
+
+@pytest.fixture
+def browser():
+    b = webdriver.Chrome()
+    yield b
+    b.quit()
 
 
-def test_valid_input():
+def test_valid_input(browser):
     page = LoginPage(driver=browser)
     page.go()
     page.username.input(credentials[0][0])
@@ -26,7 +31,7 @@ def test_valid_input():
     assert homeapp.text == 'Home app'
 
 
-def test_empty_fields():
+def test_empty_fields(browser):
     page = LoginPage(driver=browser)
     page.go()
     page.username.input(credentials[1][0])
