@@ -1,5 +1,8 @@
 # single-spa-login
 
+### Language and frameworks
+Python, Selenium WebDriver, pytest
+
 ### Scenarios tested
 1. User can log in with a valid email and password
 2. User cannot log in when email and password fields are empty
